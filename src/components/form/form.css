@@ -1,0 +1,23 @@
+.form-container {
+    background-color: rgb(216, 215, 214);   
+    
+}
+
+.form-item {   
+    width: 300px; 
+    padding: 2rem 0;
+    margin: auto; 
+    padding: 2rem; 
+         
+}
+
+
+.form-item input {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.text-btn {
+    display: flex;
+   margin: auto 
+}
