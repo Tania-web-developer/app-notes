@@ -15,7 +15,7 @@ export default function Form(props) {
                             props.addNote(inpText.current.value);
                             inpText.current.value = "";
                         }
-                    }>add a note </Button>
+                    }>add your note </Button>
                
             </div>
         </div>
