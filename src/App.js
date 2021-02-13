@@ -4,9 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Note from './components/note/Note';
 import Form from './components/form/Form';
+import TotalNotes from './components/totalNotes/TotalNotes';
 
 function App() {
   const [arr, setArr] = useState([]);
+  const [total, setTotal] = useState(0);
+
   useEffect(() => { fetchNotes() }, []);
 
   function fetchNotes() {
@@ -17,6 +20,7 @@ function App() {
     }).then((result) => {
       setArr(result.notes);
       console.log(arr);
+      getTotal();
     }).catch((error) => {
       console.log(error);
       console.log(3);
@@ -37,7 +41,8 @@ function App() {
     }).then((result) => {
       console.log(1);
       console.log(result);
-      setArr(arr.concat([{ text: text, date: new Date().toDateString() }]))
+      setArr(arr.concat([{ text: text, date: new Date().toDateString() }]));
+      getTotal();     
     }).catch((error) => {
       console.log(error);
       console.log(2);
@@ -57,11 +62,12 @@ function App() {
         return info.json();
       } else throw new Error(info.status)
     }).then((result) => {
+      getTotal();
       setArr(arr.filter((item) => {
         if (item.id === id) {
           return false;
         } else return true;
-      }))
+      }))      
     }).catch((error) => {
       console.log(error);
       console.log(1);
@@ -69,15 +75,34 @@ function App() {
 
   }
 
-  return (
-    <div className="App">
+  function getTotal() {
+    fetch("http://f0464737.xsph.ru.xsph.ru/notes/total_count.php"     
+    ).then((info) => {
+      if (info.ok) {
+        return info.json();
+      } else throw new Error(info.status)
+    }).then((result) => {
+      console.log(1);
+      console.log(result.total);
+      setTotal(result.total);      
+    }).catch((error) => {
+      console.log(error);
+      console.log(2);
+    })
+
+  }
+
+
+  return (        
+    <div className="App">     
       <Form addNote={addNote} />
       <div className="notes-container">
         {arr.map((item, index) => {
           console.log(item);
-          return <Note key={index} note={item} deleteNote={deleteNote} />
+          return <Note key={index} note={item} deleteNote={deleteNote}/>
         })}
-      </div>
+      </div>      
+      <TotalNotes total={total}/>
     </div>
   );
 }
