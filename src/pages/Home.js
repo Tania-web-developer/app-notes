@@ -1,6 +1,4 @@
-import './App.css';
 import { useState, useEffect } from "react";
-
 
 import Note from './components/note/Note';
 import Form from './components/form/Form';
