@@ -6,7 +6,7 @@ export default function Note(props) {
     return (
         <div className="note-root">
             <div className="note-container clearfix">            
-                <button type="button" className="btn btn-primary float-right" onClick={() => props.deleteNote(props.note.id)} ><FontAwesomeIcon icon={faTrashAlt} /></button>
+                <button type="button" className="btn btn-outline-dark float-right" onClick={() => props.deleteNote(props.note.id)} ><FontAwesomeIcon icon={faTrashAlt} /></button>
                 <div className="note-date">
                     <h5>{props.note.date}</h5>
                 </div>

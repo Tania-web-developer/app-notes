@@ -1,23 +1,30 @@
 .form-container {
-    background-color: rgb(216, 215, 214);   
-    
+    background-color: rgb(216, 215, 214);
 }
 
-.form-item {   
-    width: 300px; 
+.form-item {
+    display: flex;
+    justify-content: center;
     padding: 2rem 0;
-    margin: auto; 
-    padding: 2rem; 
-         
+    margin: auto;
 }
-
 
 .form-item input {
-    width: 100%;
-    margin-bottom: 1rem;
+    border:none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: .9rem;
+    padding:.3rem .5rem;
 }
 
-.text-btn {
-    display: flex;
-   margin: auto 
+.form-item input::placeholder {
+    padding: .3rem;
+    font-size: .8rem;
+}
+
+.form-btn {   
+    border-radius: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: .8rem;
 }

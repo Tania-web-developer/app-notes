@@ -1,9 +1,16 @@
-.total-container {    
+.total-container {
+    position: absolute;
+    right: 0;
     text-align: right;
-    background-color: rgb(216, 215, 214);
-    padding: 2rem 3rem;
+    background-color: #17a2b8;
+    padding: 1rem 1.5rem;
     font-size: 1rem;
+    color: white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 1rem;
 }
 
-
-
+.total-container p {
+    margin: 0
+}

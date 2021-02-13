@@ -42,7 +42,7 @@ function App() {
       console.log(1);
       console.log(result);
       setArr(arr.concat([{ text: text, date: new Date().toDateString() }]));
-      getTotal();     
+      getTotal();
     }).catch((error) => {
       console.log(error);
       console.log(2);
@@ -67,7 +67,7 @@ function App() {
         if (item.id === id) {
           return false;
         } else return true;
-      }))      
+      }))
     }).catch((error) => {
       console.log(error);
       console.log(1);
@@ -76,7 +76,7 @@ function App() {
   }
 
   function getTotal() {
-    fetch("http://f0464737.xsph.ru.xsph.ru/notes/total_count.php"     
+    fetch("http://f0464737.xsph.ru.xsph.ru/notes/total_count.php"
     ).then((info) => {
       if (info.ok) {
         return info.json();
@@ -84,7 +84,7 @@ function App() {
     }).then((result) => {
       console.log(1);
       console.log(result.total);
-      setTotal(result.total);      
+      setTotal(result.total);
     }).catch((error) => {
       console.log(error);
       console.log(2);
@@ -93,16 +93,16 @@ function App() {
   }
 
 
-  return (        
-    <div className="App">     
+  return (
+    <div className="App">
       <Form addNote={addNote} />
+      <TotalNotes total={total} />
       <div className="notes-container">
         {arr.map((item, index) => {
           console.log(item);
-          return <Note key={index} note={item} deleteNote={deleteNote}/>
+          return <Note key={index} note={item} deleteNote={deleteNote} />
         })}
-      </div>      
-      <TotalNotes total={total}/>
+      </div>
     </div>
   );
 }
