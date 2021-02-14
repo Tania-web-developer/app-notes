@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
-import Note from './components/note/Note';
-import Form from './components/form/Form';
-import TotalNotes from './components/totalNotes/TotalNotes';
+import Note from '../components/note/Note';
+import Form from '../components/form/Form';
+import TotalNotes from '../components/totalNotes/TotalNotes';
 
-function App() {
+function Home() {
   const [arr, setArr] = useState([]);
   const [total, setTotal] = useState(0); 
 
@@ -87,7 +87,7 @@ function App() {
     })
   }
   return (
-    <div className="App">
+    <div className="home">
       <Form addNote={addNote} />
       <TotalNotes total={total} />
       <div className="notes-container">
@@ -100,4 +100,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
