@@ -2,6 +2,7 @@ import './App.css';
 import About from './pages/About';
 import Home from './pages/Home';
 import { useState, useEffect } from "react";
+import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
 
 function App() {
   const [total, setTotal] = useState(0);
@@ -88,10 +89,16 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Home addNote={addNote} deleteNote={deleteNote} arr={arr} />
-      <About total={total} />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <NavLink className = "nav-link" exact to={"/"}>Home</NavLink>
+        <NavLink className = "nav-link" to={"/about"}>About</NavLink>
+        <Switch>
+          <Route exact path={"/"} render={()=><Home  addNote={addNote} deleteNote={deleteNote} arr={arr}/>}/>
+          <Route  path={"/about"} render={()=><About total={total}/>}  />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
