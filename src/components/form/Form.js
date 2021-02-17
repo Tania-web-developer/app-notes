@@ -9,13 +9,13 @@ export default function Form(props) {
     return (
         <div className="form-container">
             <div className="form-item">               
-                    <input className="text-inp" placeholder="Add text for you note" ref={inpText} />
-                    <Button className="form-btn" variant="info" onClick={
+                    <input className="text-inp" placeholder="write here a text for your note" ref={inpText} />
+                    <button className="form-btn"  onClick={
                         () => {
                             props.addNote(inpText.current.value);
                             inpText.current.value = "";
                         }
-                    }>Add your note </Button>
+                    }>add a note</button>
                
             </div>
         </div>

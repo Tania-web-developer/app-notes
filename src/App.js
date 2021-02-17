@@ -90,13 +90,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
-        <NavLink className = "nav-link" exact to={"/"}>Home</NavLink>
-        <NavLink className = "nav-link" to={"/about"}>About</NavLink>
-        <Switch>
-          <Route exact path={"/"} render={()=><Home  addNote={addNote} deleteNote={deleteNote} arr={arr}/>}/>
-          <Route  path={"/about"} render={()=><About total={total}/>}  />
-        </Switch>
+      <div className="App">        
+          <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <NavLink className="nav-link" exact to={"/"}>Home</NavLink>
+            <NavLink className="nav-link" to={"/about"}>About</NavLink>
+          </nav>
+          <Switch>
+            <Route exact path={"/"} render={() => <Home addNote={addNote} deleteNote={deleteNote} arr={arr} />} />
+            <Route path={"/about"} render={() => <About total={total} />} />
+          </Switch>        
       </div>
     </BrowserRouter>
   );
